@@ -12,6 +12,13 @@ RUN yum install -y git && \
     yum install -y sudo && \
     yum clean all
 
+# Install Python3, PIP3 and Virtualenv
+RUN yum install -y epel-release && \
+    yum install -y python36 python-pip && \
+    pip install --no-cache-dir -U pip && \
+    pip install --no-cache-dir -U virtualenv && \
+    yum clean all
+
 ARG user=jenkins
 ARG group=jenkins
 ARG uid=1000
